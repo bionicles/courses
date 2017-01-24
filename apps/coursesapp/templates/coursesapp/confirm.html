@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete a course</title>
+  </head>
+  <style media="screen">
+    .red{background-color: red}
+  </style>
+  <body>
+    <h1>Are you sure you want to delete the following course?</h1>
+    <table>
+      <td>Name:</td><td>{{course.name}}</td>
+      <td>Description:</td><td>{{course.description}}</td>
+    </table>
+    <form class="confirm" action="nuke/{{course.id}}" method="post">
+      {% csrf_token %}
+      <input type="submit" name="no" value="No">
+      <input class='red' type="submit" name="yes" value="Yes! I want to delete this">
+    </form>
+  </body>
+</html>
