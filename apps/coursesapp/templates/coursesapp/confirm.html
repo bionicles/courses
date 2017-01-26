@@ -5,6 +5,7 @@
     <title>Delete a course</title>
   </head>
   <style media="screen">
+    *{text-align: center;}
     .red{background-color: red}
   </style>
   <body>
@@ -18,5 +19,12 @@
       <input type="submit" name="no" value="No">
       <input class='red' type="submit" name="yes" value="Yes! I want to delete this">
     </form>
+    {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
   </body>
 </html>
